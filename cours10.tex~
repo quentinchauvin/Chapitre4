@@ -1,0 +1,511 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[francais]{babel}
+\usepackage[francais]{babel}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{mathtools, bm}
+\usepackage{amssymb, bm}
+\usepackage{array}
+%\usepackage[colorinlistoftodos]{todonotes}
+%\usepackage{comment}
+\usepackage{boiboites}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          DEFINITIONS D'USAGE       - RACCOURCI                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{qqwuqq}{rgb}{0,0.39,0}
+\definecolor{uququq}{rgb}{0.25,0.25,0.25}
+\definecolor{xdxdff}{rgb}{0.49,0.49,1}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{cqcqcq}{rgb}{0.75,0.75,0.75}
+\definecolor{cyann}{rgb}{0.79,0.88,1} % for strings
+\definecolor{yel}{rgb}{1,1,0.75} % for strings
+\definecolor{redd}{rgb}{1,.5,.5} % for strings
+%%%%%%%%%%%%%%%%%%%%%%%%%% Grilles %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+
+%\usepackage{./packages/boites_exemples}
+\usepackage{color}
+%pour redefinir les marges
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% ENVIRONNEMENT PROP ET DEF PERSONNEL %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newboxedtheorem[titlecolor = black, titlebackground = white, background = white,
+titleboxcolor = black, boxcolor = black, thcounter=, size = .9\textwidth]{coro}{Corollaire}{compteurCO}
+
+\newboxedtheorem[titlecolor = black, titlebackground = redd, background = yel,
+titleboxcolor = black, boxcolor = black, thcounter=, size = .9\textwidth]{Prop}{Propriété}{compteurPR}
+
+\newboxedtheorem[titlecolor = black, titlebackground = redd, background = yel,
+titleboxcolor = black, boxcolor = black, thcounter=, size = .9\textwidth]{Propo}{Proposition}{compteurPP}
+
+\newboxedtheorem[titlecolor = black, titlebackground = white, background = white,
+titleboxcolor = black, boxcolor = black, thcounter=, size = .9\textwidth]{theo}{Théorème}{compteurTH}
+
+\newboxedtheorem[titlecolor = black, titlebackground = white, background = white,
+titleboxcolor = black, boxcolor = black, thcounter=, size = .9\textwidth]{lem}{Lemme}{compteurLE}
+
+\newboxedtheorem[titlecolor = black, titlebackground = cyann , background = yel,
+titleboxcolor = black, boxcolor = black, thcounter=, size = .9\textwidth]{Def}{Définition}{compteurDE}
+
+%%%%%%%%%%%%%%%%%%%%% STYLE DES THEOREMES PROP ETC %%%%%%%%%%%%%%%%
+\newtheoremstyle{StyleTheo_will}
+{3pt}
+{5pt}
+{\upshape}
+{}
+{\scshape}
+{\newline}
+{0pt}
+{}
+%%%%%%%%%%%%%%%%%%%% STYLE DES DEFINITIONS   %%%%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{StyleDef_will}
+{3pt}
+{5pt}
+{\upshape}
+{}
+{\slshape \bfseries}
+{\newline}
+{0pt}
+{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  DECLARATION DES STYLES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{StyleTheo_will}
+%\newtheorem{Prop}{Propri\'et\'e}[section]
+%\newtheorem{Theo}{Th\'eor\`eme}[section]
+%\newtheorem{Lem}{Lemme}[section]
+%\newtheorem{coro}{Corollaire}[section]
+
+
+%\theoremstyle{StyleDef_will}
+%\newtheorem{Def}{D\'efinition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{Rem}{Remarque}
+\newtheorem*{Ex}{Exemple}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\usepackage{fancyhdr}
+\lhead{Chapitre 4 SFP-2104}
+\newcommand{\argmin}{\arg\!\min}
+\newcommand{\argmax}{\arg\!\max}
+\newcommand\rr{\mathbb{R}}
+\newcommand\nn{\mathbb{N}}
+\newcommand\begit{\begin{itemize}}
+\newcommand\enit{\end{itemize}}
+\newcommand\deff{{\bf Définition : }}
+\newcommand\propp{{\bf Proposition : }}
+\newcommand\itt{\item[$\bullet$]}
+\newcommand{\grille}[1]{
+ \begin{center}
+  \begin{tikzpicture}
+    \draw [very thin, gray] (0,0) grid[step=0.5] (15.5,#1);
+  \end{tikzpicture}
+ \end{center}
+}
+\newcommand{\grillepage}{\grille{24.5}}
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+
+\oddsidemargin=0pt
+\topmargin=-60pt
+\textwidth=450pt
+\textheight=700pt
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6cm}
+
+\title{Interférences à deux ondes par division d'amplitude}
+\author{Quentin CHAUVIN}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\begin{abstract}
+\end{abstract}
+\section{Généralités}
+Pour les systèmes interférentiels à différences du front d'onde, la source primaire doit être quasi ponctuelle pour qu'il y est cohérence entre les sources émises. La conséquence est que les figures d'interférences sont peu lumineuses. Pour qu'il y est interférence entre deux ondes, il faut que le déphasage en un point $M$ d'observation des interférences soit tel-que : \[ \Phi = \Phi_1 - \Phi_2 = \frac{2\pi}{\lambda_0}\delta = \frac{2\pi}{\lambda_0}\left( [SS_1M]-[SS_2M]\right) \] Si la source primaire est déplaçée de $\vect{dS}$, les chemins optique $[SS_1M]$ et $[SS_2M]$ varient respectivement de $n\vect{\Delta S}.\vect{u_1}$ et $n\vect{\Delta S}.\vect{u_2}$ avec $\vect{u_1}$ et $\vect{u_2}$ les vecteurs unitaires portés par les directions de propagation des ondes.
+
+
+La variation de phase (du déphasage) $\Delta\Phi$ est égale à : \[ \Delta\Phi =\frac{2\pi}{\lambda_0}n\vect{\Delta S }\space(\vect{u_2} - \vect{u_1}) \]
+
+Deux cas de figures se présentent pour maintenir la variation de déphasage $\Delta\Phi = 0$ lorsque la source primaire se déplace. C'est la propriété exploitée dans les systèmes interférentiels par division du front d'onde lorsque l'on passe d'une source ponctuelle à une source fine étendue dans la direction perpendiculaire au plan des ondes interférentes. 
+
+Cela correspond à un rayon incident unique ou à des rayons paralèlles, c'est le cas que nous allons considérer avec le système interférentiel par division d'amplitude. Le dédoublement du train d'onde issu d'un rayon incident par le biais de reflexion ou de transmission par une lame mince permet d'obtenir des interférences. Une lame mince est constitué de deux dioptres. Nous allons considérer deux types de lames minces à l'origines de franges d'interférences  : la lame mince à faces parallele et la lame mince dites en coin dont les dioptres forment un angle $\alpha$ très petit. 
+
+\section{Localisation des franges}
+
+\subsection{Lame mince à faces}
+
+Les rayons d'une source étendue d'une même inclinaison $i$ par rapport à lame mince sont parallèles entre eux après reflexion ou transmission par les dioptres parallèles de la lame mince. Ces rayons incidents parallèles entre eux permettent de renforcer la figure d'interférence. Celle-ci se forment à l'infini compte tenu du parallélisme interférentes issu de la lame mince. On dit que les interférences sont \underline{localisées à l'infini}.
+
+\subsection{Lame mince dite en coin}
+
+Lorsque la lame mince est éclairé en incidence proche de la normale au dioptre, formant un angle $\alpha$ très faible en tre eux. Le point de rencontre des rayons issus de la reflexion ou de la transmission par la lame en coin est plus ou moins proche de celle-ci. on dit que les interférences sont \underline{localisées à l'infini}.
+
+\section{Déphasage introduit par une lame}
+
+Bien que la démonstration qui suit soit illustrée par le cas de la lame à face parallèle, elle reste vallable pour la lame d'épaisseur uniforme appelé "lame en coin".
+
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw [color=cqcqcq,dash pattern=on 1pt off 1pt, xstep=0.5cm,ystep=0.5cm] (4,-1) grid (10,5);
+\clip(4,-1) rectangle (10,5);
+\draw [shift={(6,1)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (270:0.47) arc (270:284.04:0.47) -- cycle;
+\draw [shift={(5,3)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (270:0.47) arc (270:296.57:0.47) -- cycle;
+\draw [shift={(7,3)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-90:0.47) arc (-90:-63.43:0.47) -- cycle;
+\draw [shift={(8,1)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-90:0.47) arc (-90:-75.96:0.47) -- cycle;
+\draw (10,3)-- (3,3);
+\draw (3,1)-- (10,1);
+\draw (3,3)-- (10,3);
+\draw [dash pattern=on 3pt off 3pt] (5,3.5)-- (5,0.5);
+\draw [dash pattern=on 3pt off 3pt] (6,2)-- (6,0);
+\draw [dash pattern=on 3pt off 3pt] (8,2)-- (8,0);
+\draw [dash pattern=on 3pt off 3pt] (7,4)-- (7,2);
+\draw (4.5,5)-- (5,3);
+\draw (4.77,3.92) -- (4.65,3.97);
+\draw (4.77,3.92) -- (4.85,4.03);
+\draw (5,3)-- (6,1);
+\draw (5.54,1.93) -- (5.41,1.95);
+\draw (5.54,1.93) -- (5.59,2.05);
+\draw (6,1)-- (6.5,-1);
+\draw (6.27,-0.08) -- (6.15,-0.03);
+\draw (6.27,-0.08) -- (6.35,0.03);
+\draw (6,1)-- (7,3);
+\draw (6.57,2.15) -- (6.63,2.03);
+\draw (6.57,2.15) -- (6.44,2.12);
+\draw (6.5,2) -- (6.56,1.88);
+\draw (6.5,2) -- (6.37,1.97);
+\draw (7,3)-- (7.5,5);
+\draw (7.29,4.16) -- (7.37,4.05);
+\draw (7.29,4.16) -- (7.17,4.11);
+\draw (7.25,4) -- (7.33,3.89);
+\draw (7.25,4) -- (7.13,3.95);
+\draw (7,3)-- (8,1);
+\draw (7.54,1.93) -- (7.41,1.95);
+\draw (7.54,1.93) -- (7.59,2.05);
+\draw (7.46,2.07) -- (7.33,2.1);
+\draw (7.46,2.07) -- (7.52,2.19);
+\draw (7.61,1.78) -- (7.48,1.81);
+\draw (7.61,1.78) -- (7.67,1.9);
+\draw (8,1)-- (8.5,-1);
+\draw (8.27,-0.08) -- (8.15,-0.03);
+\draw (8.27,-0.08) -- (8.35,0.03);
+\draw (8.23,0.08) -- (8.11,0.13);
+\draw (8.23,0.08) -- (8.31,0.18);
+\draw (8.31,-0.24) -- (8.19,-0.18);
+\draw (8.31,-0.24) -- (8.39,-0.13);
+\draw (8,1)-- (9,3);
+\draw (9,3)-- (9.5,5);
+\draw (5,3)-- (5.5,5);
+\draw (5.27,4.08) -- (5.35,3.97);
+\draw (5.27,4.08) -- (5.15,4.03);
+\draw [dash pattern=on 3pt off 3pt] (9,4)-- (9,2);
+\begin{scriptsize}
+\fill [color=qqqqff] (3,1) circle (1.5pt);
+\draw[color=qqqqff] (3.13,1.21) node {$A$};
+\fill [color=qqqqff] (3,3) circle (1.5pt);
+\draw[color=qqqqff] (3.13,3.21) node {$D$};
+\fill [color=xdxdff] (5,3) circle (1.5pt);
+\draw[color=xdxdff] (5.13,3.21) node {$P$};
+\fill [color=uququq] (6,1) circle (1.5pt);
+\draw[color=uququq] (6.13,1.21) node {$Q$};
+\fill [color=xdxdff] (7,3) circle (1.5pt);
+\draw[color=xdxdff] (7.13,3.21) node {$S$};
+\fill [color=uququq] (8,1) circle (1.5pt);
+\draw[color=uququq] (8.13,1.21) node {$U$};
+\fill [color=xdxdff] (9,3) circle (1.5pt);
+\draw[color=xdxdff] (9.14,3.21) node {$W$};
+\draw[color=qqwuqq] (6.28,0.77) node {$\alpha$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+Soit une lame mince transparentes d'indice $n$ à face parralèle d'épaisseur $e$ plongée dans un milieu d'indice $n_0$. Soit une onde plane dont on considère que l'amplitude vaut $1$, se popageant dasn le milieu d'indice $n_0$ avec une incide proche de la normal au dioptrede la lame mince. Cette onde créée une infinité d'onde réfléchie et transmise par la lame mince. Les coeficients de reflexion et de transmission $(r,t)$ pour une incidence proche de la normal sont : 
+\begin{center}
+  \begin{tabular}{>{\centering}m{3cm}>{\centering}m{3cm}>{\centering}m{3cm}>{\centering}m{3cm}}
+    $ r_{1_{(/2)}} = \frac{n_0 - n}{n_0 + n}$ & \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw [color=cqcqcq,dash pattern=on 1pt off 1pt, xstep=1.0cm,ystep=1.0cm] (2,0) grid (5,4);
+\clip(2,0) rectangle (5,4);
+\draw (2,2)-- (5,2);
+\draw (2,4)-- (3.5,2);
+\draw (2.85,2.87) -- (2.72,2.87);
+\draw (2.85,2.87) -- (2.88,3);
+\draw (2.75,3) -- (2.62,3);
+\draw (2.75,3) -- (2.78,3.13);
+\draw (3.5,2)-- (5,4);
+\draw (4.35,3.13) -- (4.38,3);
+\draw (4.35,3.13) -- (4.22,3.13);
+\draw (4.25,3) -- (4.28,2.87);
+\draw (4.25,3) -- (4.12,3);
+\draw (2,3.18) node[anchor=north west] {1};
+\draw (2,1.19) node[anchor=north west] {2};
+\draw (3.25,3.95) node[anchor=north west] {$r_{1_{(/2)}}$};
+\end{tikzpicture} & $ t_{1_{(/2)}} = \frac{2n_0}{n_0 + n}$ & \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw [color=cqcqcq,dash pattern=on 1pt off 1pt, xstep=1.0cm,ystep=1.0cm] (2,0) grid (5,4);
+\clip(2,0) rectangle (5,4);
+\draw (2,2)-- (5,2);
+\draw (2,4)-- (3.5,2);
+\draw (2.85,2.87) -- (2.72,2.87);
+\draw (2.85,2.87) -- (2.88,3);
+\draw (2.75,3) -- (2.62,3);
+\draw (2.75,3) -- (2.78,3.13);
+\draw (2,3.18) node[anchor=north west] {1};
+\draw (2,1.19) node[anchor=north west] {2};
+\draw (3.5,2)-- (4,0);
+\draw (3.79,0.84) -- (3.67,0.9);
+\draw (3.79,0.84) -- (3.87,0.95);
+\draw (3.75,1) -- (3.63,1.05);
+\draw (3.75,1) -- (3.83,1.1);
+\draw (3.25,3.95) node[anchor=north west] {$t_{1_{(/2)}}$};
+\end{tikzpicture} \tabularnewline 
+  \end{tabular}
+\end{center}
+Avec $n_0$ l'indice du milieu $1$ et $n$ celui du milieu $2$.
+\begin{center}
+  \begin{tabular}{>{\centering}m{3cm}>{\centering}m{3cm}>{\centering}m{3cm}>{\centering}m{3cm}}
+    $ r_{2_{(/1)}} = \frac{n - n_0}{n_0 + n}$ & \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw [color=cqcqcq,dash pattern=on 1pt off 1pt, xstep=1.0cm,ystep=1.0cm] (2,0) grid (5,4);
+\clip(2,0) rectangle (5,4);
+\draw (2,2)-- (5,2);
+\draw (2,3.18) node[anchor=north west] {1};
+\draw (2,1.19) node[anchor=north west] {2};
+\draw (3.5,2)-- (5,0);
+\draw (4.35,0.87) -- (4.22,0.87);
+\draw (4.35,0.87) -- (4.38,1);
+\draw (4.25,1) -- (4.12,1);
+\draw (4.25,1) -- (4.28,1.13);
+\draw (3.25,3.95) node[anchor=north west] {$r_{2_{(/1)}}$};
+\draw (2,0)-- (3.5,2);
+\draw (2.85,1.13) -- (2.88,1);
+\draw (2.85,1.13) -- (2.72,1.13);
+\draw (2.75,1) -- (2.78,0.87);
+\draw (2.75,1) -- (2.62,1);
+\end{tikzpicture}  & $ t_{2_{(/1)}} = \frac{2n}{n_0 + n}$ & \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw [color=cqcqcq,dash pattern=on 1pt off 1pt, xstep=1.0cm,ystep=1.0cm] (2,0) grid (5,4);
+\clip(2,0) rectangle (5,4);
+\draw (2,2)-- (5,2);
+\draw (3.5,2)-- (4,4);
+\draw (3.79,3.16) -- (3.87,3.05);
+\draw (3.79,3.16) -- (3.67,3.1);
+\draw (3.75,3) -- (3.83,2.9);
+\draw (3.75,3) -- (3.63,2.95);
+\draw (2,3.18) node[anchor=north west] {1};
+\draw (2,1.19) node[anchor=north west] {2};
+\draw (3.28,0.82) node[anchor=north west] {$t_{2_{(/1)}}$};
+\draw (2,0)-- (3.5,2);
+\draw (2.85,1.13) -- (2.88,1);
+\draw (2.85,1.13) -- (2.72,1.13);
+\draw (2.75,1) -- (2.78,0.87);
+\draw (2.75,1) -- (2.62,1);
+\end{tikzpicture}
+  \end{tabular}
+\end{center}
+
+Deux relations sont à prendre en compte entre ces coefficients. La première est immédiate : $r_1 = -r_2$. La deuxième est issu du théorème de conservation de l'énergie en un point du dioptre : $r+t = 1$ avec $r$ et $t$ les coefficients de réflexion et de transmission en énergie.
+
+Appliqué au dioptre A les coefficients en énergie pour une incidence proche de la normale sont : 
+\[ R_{1_{(/2)}} = r_1\verb||^2 ; T_{1_{(/2)}} =T_{1_{(/2)}}\verb||^2\frac{n}{n_0}\]
+
+On en déduit donc :
+
+ \[ r_1\verb||^2 + T_{1_{(/2)}}\verb||^2\frac{n}{n_0} = 1\]
+
+Considérons maintenant le cas ou $n_0<n$, les deux relations précedentes donnent : 
+\[r_1 = r_2 = -r < 0 \]
+\[ t_1t_2 = 1 - r_1\verb||^2 = 1 - r^2 \]
+Les amplitudes des 4 premières ondes réfléchies sont :
+
+\begin{center}
+  \begin{tabular}{r c l}
+    $r_1$               & $\Rightarrow$ & $-r$ \\
+    $t_1t_2r_2$         & $\Rightarrow$ & $(1 - r^2)r$ \\
+    $t_1t_2r_2\verb||^3$& $\Rightarrow$ & $(1 - r^2)r^3$\\
+    $t_1t_2r_2\verb||^5$& $\Rightarrow$ & $(1 - r^2)r^5$
+  \end{tabular}
+\end{center}
+
+Les amplitudes des 4 premières ondes transmise sont : 
+
+\begin{center}
+  \begin{tabular}{r c l}
+    $t_1t_2$            & $\Rightarrow$ & $1 - r^2)$ \\
+    $t_1t_2r_2\verb||^2$& $\Rightarrow$ & $(1 - r^2)r^2$ \\
+    $t_1t_2r_2\verb||^4$& $\Rightarrow$ & $(1 - r^2)r^4$\\
+    $t_1t_2r_2\verb||^6$& $\Rightarrow$ & $(1 - r^2)r^6$
+  \end{tabular}
+\end{center}
+
+Dans le cas de dioptre non traités pour augmenter leurcoefficients de reflexion $r \ll 1$ (Ex  : si la lame est en verre d'indice $n = 1,5$ baignant dans un milieu d'indice $n_0 = 1$ alors $r = 0,2$ ainsi seules les deux premières ondes réfléchies et transmises ont des amplitudes non négligeables) l'études peut alors se limiter à ces deux ondes. \\ Par ailleurs les deux ondes réfléchies ayant des amplitudes beaucoup plus proches que les ondes transmises le contraste obtenu par reflexion est meilleur que celui par transmission.
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw [color=cqcqcq,dash pattern=on 1pt off 1pt, xstep=0.5cm,ystep=0.5cm] (3,-1) grid (11,5);
+\draw [color=cqcqcq,dash pattern=on 1pt off 1pt] (-1,3)  (11,5);
+\clip(3,-1) rectangle (11,5);
+\draw [shift={(6,1)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (270:0.46) arc (270:284.04:0.46) -- cycle;
+\draw [shift={(5,3)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (270:0.46) arc (270:296.57:0.46) -- cycle;
+\draw [shift={(7,3)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-90:0.46) arc (-90:-63.43:0.46) -- cycle;
+\draw [shift={(8,1)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (-90:0.46) arc (-90:-75.96:0.46) -- cycle;
+\draw (3,1)-- (10,1);
+\draw (10,3)-- (3,3);
+\draw (3,1)-- (10,1);
+\draw (3,3)-- (10,3);
+\draw [dash pattern=on 3pt off 3pt] (5,3.5)-- (5,0.5);
+\draw [dash pattern=on 3pt off 3pt] (6,2)-- (6,0);
+\draw [dash pattern=on 3pt off 3pt] (8,2)-- (8,0);
+\draw [dash pattern=on 3pt off 3pt] (7,4)-- (7,2);
+\draw (4.5,5)-- (5,3);
+\draw (4.77,3.92) -- (4.65,3.97);
+\draw (4.77,3.92) -- (4.85,4.03);
+\draw (5,3)-- (6,1);
+\draw (5.54,1.93) -- (5.41,1.95);
+\draw (5.54,1.93) -- (5.59,2.05);
+\draw (6,1)-- (6.5,-1);
+\draw (6.27,-0.08) -- (6.15,-0.03);
+\draw (6.27,-0.08) -- (6.35,0.03);
+\draw (6,1)-- (7,3);
+\draw (6.57,2.14) -- (6.63,2.03);
+\draw (6.57,2.14) -- (6.44,2.12);
+\draw (6.5,2) -- (6.56,1.88);
+\draw (6.5,2) -- (6.37,1.97);
+\draw (7,3)-- (7.5,5);
+\draw (7.29,4.16) -- (7.37,4.05);
+\draw (7.29,4.16) -- (7.17,4.1);
+\draw (7.25,4) -- (7.33,3.9);
+\draw (7.25,4) -- (7.13,3.95);
+\draw (7,3)-- (8,1);
+\draw (7.54,1.93) -- (7.41,1.95);
+\draw (7.54,1.93) -- (7.59,2.05);
+\draw (7.46,2.07) -- (7.34,2.1);
+\draw (7.46,2.07) -- (7.52,2.19);
+\draw (7.61,1.78) -- (7.48,1.81);
+\draw (7.61,1.78) -- (7.66,1.9);
+\draw (8,1)-- (8.5,-1);
+\draw (8.27,-0.08) -- (8.15,-0.03);
+\draw (8.27,-0.08) -- (8.35,0.03);
+\draw (8.23,0.08) -- (8.11,0.13);
+\draw (8.23,0.08) -- (8.31,0.18);
+\draw (8.31,-0.23) -- (8.19,-0.18);
+\draw (8.31,-0.23) -- (8.39,-0.13);
+\draw (8,1)-- (9,3);
+\draw (9,3)-- (9.5,5);
+\draw (5,3)-- (5.5,5);
+\draw (5.27,4.08) -- (5.35,3.97);
+\draw (5.27,4.08) -- (5.15,4.03);
+\draw [dash pattern=on 3pt off 3pt] (9,4)-- (9,2);
+\draw [->] (10.5,2) -- (10.5,3);
+\draw [->] (10.5,2) -- (10.5,1);
+\draw (10.5,2.3) node[anchor=north west] {$e$};
+\draw (9.8,4.3) node[anchor=north west] {$1$};
+\draw (9.8,2.3) node[anchor=north west] {$2$};
+\draw (9.8,-0.02) node[anchor=north west] {$1$};
+\draw (3.15,2.2) node[anchor=north west] {$n$};
+\draw (3.06,4.3) node[anchor=north west] {$n_0$};
+\draw (3.06,0.11) node[anchor=north west] {$n_0$};
+\draw (7,3)-- (5.12,3.47);
+\draw (5.24,4) node[anchor=north west] {$H$};
+\draw (4.3,3) node[anchor=north west] {$I_1$};
+\draw (6.2,3) node[anchor=north west] {$I_2$};
+\draw (5.3,1) node[anchor=north west] {$J_1$};
+\draw (7.3,1) node[anchor=north west] {$J_2$};
+\draw (5,3)-- (7,3);
+\draw (6,3.07) -- (6,2.93);
+\draw (5,3)-- (7,3);
+\draw (5.5,3) node[anchor=north west] {$K$};
+\begin{scriptsize}
+\fill [color=xdxdff] (5,3) circle (1.5pt);
+\fill [color=xdxdff] (7,3) circle (1.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\[\delta_r = [I_1J_1I_1] - [I_2H] \]
+\[\delta_r = n\overline{IJ_1}  + n\overline{J_1I_2} - n_0\overline{I_2H}\]
+\[I_1J_1 = \frac{e}{cos r}\]
+\[I_1H = I_1I_2 sini\]
+\[I_1I_2 = 2I_1K = 2e \times tani\]
+\section{Franges d'égale épaisseur : Franges de Fizeau}
+\subsection{Cas général d'une lame quelconque}
+
+Les expressions de la difference de marche totales (difference de marche géometrique et physique pour les interferences observe en reflaxion et en transmission pour les interference observés en transmissions et en réflexion :
+$
+\delta = 2ne cos(r) +(\lambda_0/2)
+$.
+L'intensité des ondes interférents en un point localisé de la surface de localisation des franges $ I = I_1 +I_2+2\sqrt{I_1I_2}cos\Theta  cos \Phi$.
+
+Avec $cos\Theta = 1$ pour des rayons proche de la normal au dioptre. Les points M d'observation des interférences d'égales intensité sont donc tel que $e=cte$. Les franges obtenue sont donc apelées "Franges d'égales épaisseur" puisque les franges d'égale intensite sont obtenu a prtir d'ondes ondes reflechoies ou transmisise par une me épaisseur de lame. 
+
+Les franges observés d'égales intensité D'UNE LAME MINCE POur la reflexion sont telles que $p+1 = 2n(e+\Delta e) => \Delta_e=\lambda_0/2n$
+
+Et en reflexion : 
+
+\[ p+1 = \frac{2n(e+\Delta e)}{\lambda_0} +1/2\]
+
+
+
+Les franges dégales intensité en reflexion observées en reflexion ou en transmission avec des plans paralèlle équidistant de lambda0 / 2m .
+
+Soit AB la distance entre 2 franges d'égales intensité lumineuse contigue. AB est constante, on peut donc parler de constante entre deux franges d'égales intensité lumineuse contigue avec : \\
+
+ $I_f = \lambda_0/2n\alpha$
+ 
+  e est environ egal à $\alpha X$ Avec X la distance en tre la frange et l'arrete du coin.
+
+L'ensemble des points d'égales intensité obtenue pour e = cte sont donc tels que X= cte. Les franges sont donc des droites parallele s à l'arete du coins.
+
+Il existe 2 méthodes pour obtenir des interférences par en coin d'air :
+
+- Dispositif des anneaux de Newton
+
+- Inter
+
+La lame d'aire entre une lentille plan convexe dont la face convexe est placée en ragard d'une lame à face parallèle. 
+Soit e l'épaisseur de la lame au point considéré et R le rayon de courbure de la lentille. Soit $\rho$ .Pour un insidence proche de la normal à la lentilles, les point m sont d'éles intensité. Les franges d'égale épaisseur déffinissent des anneaux concentriques. En incidence normal.% 
+
+\[
+\Phi = \frac{2\pi}{\lambda_0}(2e+\delta_p)
+e = e' + e_0
+e'= 
+R2 =(R-e')2
+\]
+
+Ansi le déphasage $\Phi$ ne dépend que de $\rho$ la distance de m à l'axe optique de la lentille. Les points d'égale intensité lumineuse déffinissent bien des anneeaux centré sur l'axe optique de la lentille de rayon $\rho$.
+
+COnsidéront le cas où l'on observe la figure d'interférence en réflaxion : Sur l'axe de la lentille, au centre des anneaux $\rho = 0$ et donc $p_0= \frac{2e_0}{\lambda_0} + 1/2$ et $p = \sqrt{\lambda_0 R (p-p_0)}$
+
+Cette formule reste valable pour le rayon $\rho$ des anneau observé en transmission.
+
+Les anneaux brillants de Newton ont des rayons tel que $\rho_m = \sqrt{\lambda_0 R(m-p_0)} $ Avec m entier.
+
+Les anneaux sombres de Newton ont des rayons tels que $\rho_m = \sqrt{\lambda_0 R(m-1/2-p_0)} $ Avec m entier. On peut exprimer $p_0$ dans le cas général
+
+Le rayon du Q ième anneau brillant est égal à $\sqrt{\lambda_0  R (p_q-p_0)}$
+
+Si la lentille plan convexe repose directement sur la lame de verre $e_0 =0$ et on en déduit $\rho_m = \sqrt{\lambda_0 R m} $ (point sombre au centre.
+
+Ansi on constate que le rayon des anneau sombre obtenue par reflexion varrie comme la racine carré d'entier successif
+
+De plus M est égal à 0
+
+A un anneau donné correspond à un ordre d'interférence donné ainsi lorsque e diminue càd si $e_0$ alors $\rho$ augmente.
+
+Conclusion
+
+Les anneaux ont un rayon qui augmente avec la diminution de $e$.
+
+\subsection{Interphéromètre de Michelson : utilisation en coin d'air}
+
+Soit une source $S$ étendue éclairant le Michelson à partir de la position de contact optique. A partir de la position de contact optique , on incline le mirroir M2 d'un angle $\alpha$ très petit. Comme $\alpha$ est très petit on pu considérer la figure d'interférence comme étant le plan des mirroirs. Ainsi compte tenu de la localisation de la figure d'interférence, celles ci pourrons être observées soit directement à l'oeil nu en accomodant dans ce plan soit en formant l'image du plan des mirroirs par un lentille mince convergente (observation dans le plan conjugué des mirroirs et non dans le plan focal image de la lentille). Au voisinage des mirroirs, la différence de marche entre les rayons interférents voit approximativement $\delta = 2e$ or l'épaisseur de la lame dépend uniquement du point observé et de sa distance $X$ par rapport à l'intersection des mirroirs. En effet, on a $e= \alpha x$ (pour $\alpha$ très petit) et l'interfrange $i_f= \lambda_0/\alpha$.
+\end{document}
