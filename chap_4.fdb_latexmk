@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1515429476 "chap_4.tex" "chap_4.pdf" "chap_4" 1515429477
+["pdflatex"] 1515432835 "chap_4.tex" "chap_4.pdf" "chap_4" 1515432836
   "/etc/texmf/web2c/texmf.cnf" 1514236291 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm" 1136768653 3584 f80ddd985bd00e29e9a6047ebd9d4781 ""
@@ -200,13 +200,13 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1488610416 31340 0f53f8665296bf8fe6c697f9505e31d8 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1514237469 127754 aa49b7647e692a923037b63ea1811fc4 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1514237472 743084 e496c3e03cc2465060ae5c4a7a1ed222 ""
-  "chap_4.aux" 1515429477 2152 ded7a6dfc54b3b10ede755055314b28a ""
-  "chap_4.out" 1515429477 810 0b7b62989c1591e0c137db254faccbef ""
-  "chap_4.tex" 1515429476 41338 c3cdcf277cfeab7857f394fe756bb25e ""
-  "chap_4.toc" 1515429477 1102 23cf87a0b1de882ef89721ec5aca3430 ""
+  "chap_4.aux" 1515432836 2152 ded7a6dfc54b3b10ede755055314b28a ""
+  "chap_4.out" 1515432836 810 0b7b62989c1591e0c137db254faccbef ""
+  "chap_4.tex" 1515432834 42397 31764fa54967deb26e0a99300de58337 ""
+  "chap_4.toc" 1515432836 1102 23cf87a0b1de882ef89721ec5aca3430 ""
   (generated)
-  "chap_4.toc"
   "chap_4.out"
+  "chap_4.log"
+  "chap_4.toc"
   "chap_4.pdf"
   "chap_4.aux"
-  "chap_4.log"

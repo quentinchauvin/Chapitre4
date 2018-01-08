@@ -21,6 +21,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1.}
 \definecolor{qqwuqq}{rgb}{0,0.39,0}
+\definecolor{qqzzff}{rgb}{0,0.6,1}
 \definecolor{uququq}{rgb}{0.25,0.25,0.25}
 \definecolor{xdxdff}{rgb}{0.49,0.49,1}
 \definecolor{qqqqff}{rgb}{0,0,1}
@@ -693,6 +694,26 @@ L'ordre d'interférence du premier anneau brillant :
   $2$\textsuperscript{ème} : & $m_0 - 1 = p_1$ \\
   $q$\textsuperscript{ème} : & $m_0 -(q - 1) = m_0 -q + 1 = p_{q-1}$
 \end{tabular}
+\end{center}
+
+\[p_q = f\sqrt{\frac{\lambda_0}{ne}\left(\frac{2ne}{\lambda_0} - p_q\right)} = f\sqrt{\frac{\lambda_0}{ne}\left(p_0 - p_q\right)}\]
+\[ \Leftrightarrow p_q = f\sqrt{\frac{\lambda_0}{ne}\left(m_0 + \varepsilon -m_0 +q -1\right)}\]
+\[ \Leftrightarrow p_q = f\sqrt{\frac{\lambda_0}{ne}\left(\varepsilon +q -1\right)}\]
+
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw [color=cqcqcq,dash pattern=on 1pt off 1pt, xstep=0.5cm,ystep=0.5cm] (4,2.5) grid (7,5.5);
+\clip(4,2.5) rectangle (7,5.5);
+\draw [color=qqzzff] (5.5,4) circle (1.5cm);
+\draw [color=qqzzff] (5.5,4) circle (1cm);
+\draw [color=qqzzff] (5.5,4) circle (0.5cm);
+\draw (5.36,4.47) node[anchor=north west] {$q = 1$};
+\draw (5.35,5.01) node[anchor=north west] {$q = 2$};
+\draw (5.36,5.51) node[anchor=north west] {$q = 3$};
+\draw (5.85,4.17) node[anchor=north west] {$p = 3$};
+\draw (6.34,4.17) node[anchor=north west] {$p = 2$};
+\draw (6.84,4.18) node[anchor=north west] {$p = 1$};
+\end{tikzpicture}
 \end{center}
 \section{Franges d'égales épaisseur : Franges de Fizeau}
 \subsection{Cas général d'une lame quelconque}
