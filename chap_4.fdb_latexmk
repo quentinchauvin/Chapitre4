@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1515432835 "chap_4.tex" "chap_4.pdf" "chap_4" 1515432836
+["pdflatex"] 1515509466 "chap_4.tex" "chap_4.pdf" "chap_4" 1515509467
   "/etc/texmf/web2c/texmf.cnf" 1514236291 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm" 1136768653 3584 f80ddd985bd00e29e9a6047ebd9d4781 ""
@@ -141,9 +141,7 @@
   "/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc" 1254938640 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc" 1254938640 2840 216e6e45ad352e2456e1149f28885bee ""
   "/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc" 1254938640 2327 9d6df24f9c4f7368395224341a95523a ""
-  "/usr/share/texmf/fonts/tfm/public/lm/ec-lmbx10.tfm" 1254938640 12076 b54175e02101bea1addf6b2d0197ed12 ""
   "/usr/share/texmf/fonts/tfm/public/lm/ec-lmbx12.tfm" 1254938640 12088 d750ac78274fa7c9f73ba09914c04f8a ""
-  "/usr/share/texmf/fonts/tfm/public/lm/ec-lmr10.tfm" 1254938640 12056 7e13df7fe4cbce21b072ba7c4f4deb6e ""
   "/usr/share/texmf/fonts/tfm/public/lm/ec-lmr12.tfm" 1254938640 12092 7b1546e2d096cfd5dcbd4049b0b1ec2e ""
   "/usr/share/texmf/fonts/tfm/public/lm/ec-lmr17.tfm" 1254938640 12156 ca1ae6a3c8564e89597f1f993fba1608 ""
   "/usr/share/texmf/fonts/tfm/public/lm/ec-lmr8.tfm" 1254938640 12064 a35db870f0b76c338d749c56dc030ef5 ""
@@ -178,7 +176,6 @@
   "/usr/share/texmf/fonts/tfm/public/lm/rm-lmr6.tfm" 1254938640 11836 e3b6ce3e601aec94f64a536e7f4224d5 ""
   "/usr/share/texmf/fonts/tfm/public/lm/rm-lmr7.tfm" 1254938640 11852 5a9022f105fd1ee2797df861e79ae9a0 ""
   "/usr/share/texmf/fonts/tfm/public/lm/rm-lmr8.tfm" 1254938640 11864 309fd7f43e4a0ba39f6f7644d76e8edf ""
-  "/usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb" 1254938640 121021 1bf809ce4a594679006bd72263eba59b ""
   "/usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb" 1254938640 116908 1fca96723793882c2e0160350c192fc8 ""
   "/usr/share/texmf/fonts/type1/public/lm/lmex10.pfb" 1254938640 23055 2e5b42921de910eaa97b85df04ca4891 ""
   "/usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb" 1254938640 30696 2654571912f9cd384da9f7cb8a60c568 ""
@@ -200,13 +197,13 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1488610416 31340 0f53f8665296bf8fe6c697f9505e31d8 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1514237469 127754 aa49b7647e692a923037b63ea1811fc4 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1514237472 743084 e496c3e03cc2465060ae5c4a7a1ed222 ""
-  "chap_4.aux" 1515432836 2152 ded7a6dfc54b3b10ede755055314b28a ""
-  "chap_4.out" 1515432836 810 0b7b62989c1591e0c137db254faccbef ""
-  "chap_4.tex" 1515432834 42397 31764fa54967deb26e0a99300de58337 ""
-  "chap_4.toc" 1515432836 1102 23cf87a0b1de882ef89721ec5aca3430 ""
+  "chap_4.aux" 1515509467 2478 973ff4b159481fc34ea15da1c607a3bf ""
+  "chap_4.out" 1515509467 1034 4b9138a977c64975585ccae8483a12cf ""
+  "chap_4.tex" 1515509466 44001 d16626666b3ecd8a7f900b943740eedc ""
+  "chap_4.toc" 1515509467 1374 b859f21f0f57e29261850f7aa2679e0a ""
   (generated)
   "chap_4.out"
   "chap_4.log"
+  "chap_4.aux"
   "chap_4.toc"
   "chap_4.pdf"
-  "chap_4.aux"

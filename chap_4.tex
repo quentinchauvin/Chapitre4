@@ -4,13 +4,9 @@
 \usepackage{lmodern}
 \usepackage[francais]{babel}
 \usepackage[francais]{babel}
-\usepackage{amsmath,amsthm,amssymb,amsfonts}
-\usepackage{amsmath}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,bm, mathtools}
 \usepackage{graphicx}
-\usepackage{mathtools, bm}
-\usepackage{amssymb, bm}
 \usepackage{array}
-
 %\usepackage[colorinlistoftodos]{todonotes}
 %\usepackage{comment}
 \usepackage{boiboites}
@@ -145,10 +141,9 @@ titleboxcolor = black, boxcolor = black, thcounter=, size = .9\textwidth]{Def}{D
 \maketitle
 \tableofcontents
 
-\begin{abstract}
-\end{abstract}
 \section{Généralités}
-Pour les systèmes interférentiels à différences du front d'onde, la source primaire doit être quasi ponctuelle pour qu'il y est cohérence entre les sources émises. La conséquence est que les figures d'interférences sont peu lumineuses. Pour qu'il y est interférence entre deux ondes, il faut que le déphasage en un point $M$ d'observation des interférences soit tel-que : \[ \Phi = \Phi_1 - \Phi_2 = \frac{2\pi}{\lambda_0}\delta = \frac{2\pi}{\lambda_0}\left( [SS_1M]-[SS_2M]\right) \] Si la source primaire est déplaçée de $\vect{dS}$, les chemins optique $[SS_1M]$ et $[SS_2M]$ varient respectivement de $n\vect{\Delta S}.\vect{u_1}$ et $n\vect{\Delta S}.\vect{u_2}$ avec $\vect{u_1}$ et $\vect{u_2}$ les vecteurs unitaires portés par les directions de propagation des ondes.
+Pour les systèmes interférentiels à différences du front d'onde, la source primaire doit être quasi ponctuelle pour qu'il y est cohérence entre les sources émises. La conséquence est que les figures d'interférences sont peu lumineuses. Pour qu'il y est interférence entre deux ondes, il faut que le déphasage en un point $M$ d'observation des interférences soit tel-que : 
+\[ \varPhi = \varPhi_1 - \varPhi_2 = \frac{2\pi}{\lambda_0}\delta = \frac{2\pi}{\lambda_0}\left( [SS_1M]-[SS_2M]\right) \] Si la source primaire est déplaçée de $\vect{dS}$, les chemins optique $[SS_1M]$ et $[SS_2M]$ varient respectivement de $n\vect{\Delta S}.\vect{u_1}$ et $n\vect{\Delta S}.\vect{u_2}$ avec $\vect{u_1}$ et $\vect{u_2}$ les vecteurs unitaires portés par les directions de propagation des ondes.
 
 
 La variation de phase (du déphasage) $\Delta\Phi$ est égale à : \[ \Delta\Phi =\frac{2\pi}{\lambda_0}n\vect{\Delta S }\space(\vect{u_2} - \vect{u_1}) \]
@@ -702,8 +697,8 @@ L'ordre d'interférence du premier anneau brillant :
 
 \begin{center}
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-\draw [color=cqcqcq,dash pattern=on 1pt off 1pt, xstep=0.5cm,ystep=0.5cm] (4,2.5) grid (7,5.5);
-\clip(4,2.5) rectangle (7,5.5);
+\draw [color=cqcqcq,dash pattern=on 1pt off 1pt, xstep=0.5cm,ystep=0.5cm] (3.99,2.49) grid (7,5.5);
+\clip(3.5,2.5) rectangle (7,5.5);
 \draw [color=qqzzff] (5.5,4) circle (1.5cm);
 \draw [color=qqzzff] (5.5,4) circle (1cm);
 \draw [color=qqzzff] (5.5,4) circle (0.5cm);
@@ -715,76 +710,92 @@ L'ordre d'interférence du premier anneau brillant :
 \draw (6.84,4.18) node[anchor=north west] {$p = 1$};
 \end{tikzpicture}
 \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Franges d'égales épaisseur : Franges de Fizeau}
 \subsection{Cas général d'une lame quelconque}
 
-Les expressions de la difference de marche totales (difference de marche géometrique et physique pour les interferences observe en reflaxion et en transmission pour les interference observés en transmissions et en réflexion :
-$
-\delta = 2ne cos(r) +(\lambda_0/2)
-$.
-L'intensité des ondes interférents en un point localisé de la surface de localisation des franges $ I = I_1 +I_2+2\sqrt{I_1I_2}cos\Theta  cos \Phi$.
+Les expressions de la difference de marche totales (difference de marche géometrique et physique) pour les interferences observés en transmissions et en réflexion sur une lame mince d'indice $n$ sont :
+\[
+\delta_r = 2ne\cos r +\frac{\lambda_0}{r}\verb|   |;\verb|   |\delta_t = 2ne\cos r
+\]\[
+\varPhi_r = \frac{2\pi}{\lambda_0}\times 2ne \cos r + \pi\verb|   |;\verb|   |\varPhi_t = \frac{2\pi}{\lambda_0}\times 2ne \cos r
+\]
 
-Avec $cos\Theta = 1$ pour des rayons proche de la normal au dioptre. Les points M d'observation des interférences d'égales intensité sont donc tel que $e=cte$. Les franges obtenue sont donc apelées "Franges d'égales épaisseur" puisque les franges d'égale intensite sont obtenu a prtir d'ondes ondes reflechoies ou transmisise par une me épaisseur de lame. 
+L'intensité des ondes interférents en un point de la surface de localisation des franges est donné par :
+\[ I = I_1 +I_2+2\sqrt{I_1I_2}cos\Theta  cos \Phi\]
 
-Les franges observés d'égales intensité D'UNE LAME MINCE POur la reflexion sont telles que $p+1 = 2n(e+\Delta e) => \Delta_e=\lambda_0/2n$
+Avec $\cos\Theta = \cos\varPhi = 1$ pour des rayons incidents proche de la normal au dioptre de la lame en coin.
+
+Les points $M$ d'observation des interférences d'égales intensité sont donc tel que $e=cte$. Les franges obtenues sont donc apelées "Franges d'égales épaisseur" puisque les franges d'égale intensité sont obtenue à partir d'ondes  refléchies ou transmise par une même épaisseur de lame. 
+
+Les franges observés d'égales intensité d'une lame mince pour la transmission sont telles que :
+
+\[p+1 = \frac{2n(e+\Delta e)}{\lambda_0} => \Delta_e=\frac{\lambda_0}{2n}\]
 
 Et en reflexion : 
 
-\[ p+1 = \frac{2n(e+\Delta e)}{\lambda_0} +\frac{1}{2}\]
+\[p+1 = \frac{2n(e+\Delta e)}{\lambda_0} => \Delta_e=\frac{\lambda_0}{2n}\]
 
 
 
-Les franges dégales intensité en reflexion observées en reflexion ou en transmission avec des plans paralèlle équidistant de lambda0 / 2m .
+Les franges dégales intensité en reflexion ou en transmission sont définies par les intersections de la surface de la lame avec des plans paralèlle équidistant de $\frac{\lambda0}{2n}$.
+\subsection{Lame en coin}
 
-Soit $AB$ la distance entre 2 franges d'égales intensité lumineuse contigue. $AB$ est constante, on peut donc parler de constante entre deux franges d'égales intensité lumineuse contigue avec : 
+Soit $AB$ la distance entre 2 franges d'égales intensité lumineuse contigue à la surface d'une lame en coin. On a :
+\[\Delta_e = AB\sin \alpha\]
+Avec $\alpha$ très petit entre la surface des deux dioptres :
+\[\Delta_e = AB \alpha\]
+Compte tenu de la relation entre $\Delta_e$ on à :
+\[AB = \frac{\lambda_0}{2n\alpha}\]
+ $AB$ est constante, on peut donc parler de constante entre deux franges d'égales intensité lumineuse contigue avec : 
 
  \[I_f = \frac{\lambda_0}{2n\alpha}\]
  
-  e est environ egal à $\alpha X$ Avec X la distance en tre la frange et l'arrete du coin.
+$e$ est environ égal à $\alpha X$\\ Avec X la distance entre la frange et l'arrête du coin. L'ensemble des points d'égales intensité obtenue pour e = cte sont donc tels que $X = cte$. Les franges sont donc des droites parallèles à l'arrête du coin.
+\subsection{Coin d'air}
 
-L'ensemble des points d'égales intensité obtenue pour e = cte sont donc tels que X= cte. Les franges sont donc des droites parallele s à l'arete du coins.
+Il existe 2 méthodes pour obtenir des interférences par un coin d'air :
 
-Il existe 2 méthodes pour obtenir des interférences par en coin d'air :
+- Dispositif des anneaux de Newton\\
+- Interféromètre de Michelson réglé en coin d'air 
 
-- Dispositif des anneaux de Newton
+\subsubsection{Dispositif des anneaux de Newton}
 
-- Inter
-
-La lame d'aire entre une lentille plan convexe dont la face convexe est placée en ragard d'une lame à face parallèle. 
-Soit e l'épaisseur de la lame au point considéré et R le rayon de courbure de la lentille. Soit $\rho$ .Pour un insidence proche de la normal à la lentilles, les point m sont d'éles intensité. Les franges d'égale épaisseur déffinissent des anneaux concentriques. En incidence normal.% 
+La lame d'aire est réalisée entre une lentille plan convexe dont la face convexe est placée en regard d'une lame à face parallèle. 
+Soit $e$ l'épaisseur de la lame au point considéré au poinr $M$ et $R$ le rayon de courbure de la lentille. Soit $\rho$ la distance de l'axe optique à la lentille. Les points $M$ d'égale intensité sont tel que $e = cte$. Les franges d'égale épaisseur déffinissent des anneaux concentriques du fait de la symétrie de revolution du système. En incidence normale on a : 
 
 \[
-\Phi = \frac{2\pi}{\lambda_0}(2e+\delta_p)
-e = e' + e_0
-e'= 
-R2 =(R-e')2
-\]
+\varPhi = \frac{2\pi}{\lambda_0}(2e+\delta_p)\]\[
+e = e' + e_0\]\[
+e'= ?\]\[\
+R^2 =(R-e')^2 + \rho^2\]\[
+\rho^2 = e'(2R - e') \simeq 2Re'\]\[
+\varPhi = \frac{2\pi}{\lambda_0}\left(2e_0 + \frac{\rho^2}{R} + \delta_p\right)\]
 
-Ansi le déphasage $\Phi$ ne dépend que de $\rho$ la distance de m à l'axe optique de la lentille. Les points d'égale intensité lumineuse déffinissent bien des anneeaux centré sur l'axe optique de la lentille de rayon $\rho$.
+Ansi le déphasage $\varPhi$ ne dépend que de $\rho$ la distance de $M$ à l'axe optique de la lentille. Les points d'égale intensité lumineuse déffinissent bien des anneaux centré sur l'axe optique de la lentille de rayon $\rho$.
 
-COnsidéront le cas où l'on observe la figure d'interférence en réflaxion : Sur l'axe de la lentille, au centre des anneaux $\rho = 0$ et donc $p_0= \frac{2e_0}{\lambda_0} + 1/2$ et $p = \sqrt{\lambda_0 R (p-p_0)}$
+Considéront le cas où l'on observe la figure d'interférence en réflexion : 
+\[\delta_r = 2e + \frac{\lambda_0}{2}\]
+\[\Rightarrow p = \frac{2e}{\lambda_0} + \frac{1}{2} = \frac{2e_0}{\lambda_0} + \frac{\rho^2}{\lambda_0R} + \frac{1}{2}\]
+Sur l'axe de la lentille, au centre des anneaux $\rho = 0$ et donc :\[p_0= \frac{2e_0}{\lambda_0} + \frac{1}{2}\] \[\Rightarrow p - p_0 = \frac{\rho^2}{\lambda_0R} \Rightarrow p = \sqrt{\lambda_0 R (p-p_0)}\]
 
 Cette formule reste valable pour le rayon $\rho$ des anneau observé en transmission.
 
-Les anneaux brillants de Newton ont des rayons tel que $\rho_m = \sqrt{\lambda_0 R(m-p_0)} $ Avec m entier.
+Les anneaux brillants de Newton ont des rayons tel que $\rho_{mb} = \sqrt{\lambda_0 R(m-p_0)} $ Avec $m$ entier.
 
-Les anneaux sombres de Newton ont des rayons tels que $\rho_m = \sqrt{\lambda_0 R(m-1/2-p_0)} $ Avec m entier. On peut exprimer $p_0$ dans le cas général
+Les anneaux sombres de Newton ont des rayons tels que $\rho_{ms} = \sqrt{\lambda_0 R(m+ \frac{1}{2}-p_0)} $ Avec $m$ entier et $p = m +\frac{1}{2}$. On peut exprimer $p_0$ dans le cas général : $p_0 = m_0 + \varepsilon$ avec $0\leqslant\varepsilon< 1$ et $m_0$ la valeur minimum de $m$ entier.
 
 Le rayon du Q ième anneau brillant est égal à $\sqrt{\lambda_0  R (p_q-p_0)}$
 
 Si la lentille plan convexe repose directement sur la lame de verre $e_0 =0$ et on en déduit $\rho_m = \sqrt{\lambda_0 R m} $ (point sombre au centre.
 
-Ansi on constate que le rayon des anneau sombre obtenue par reflexion varrie comme la racine carré d'entier successif
+Ansi on constate que le rayon des anneau sombre obtenue par reflexion varrie comme la racine carré d'entier successif.De plus $m = m_0 = 0$ donc le centre est un point sombre. L'ordre d'interférence est $p_0 = \frac{1}{2}$.
 
-De plus M est égal à 0
+A un anneau donné correspond à un ordre d'interférence donné ainsi lorsque $e$ diminue c'est à dire si $e_0$ diminue alors $\rho$ augmente. Les anneaux ont un rayon qui augmente avec la diminution de $e$.
 
-A un anneau donné correspond à un ordre d'interférence donné ainsi lorsque e diminue càd si $e_0$ alors $\rho$ augmente.
+\subsubsection{Interphéromètre de Michelson : utilisation en coin d'air}
 
-Conclusion
-
-Les anneaux ont un rayon qui augmente avec la diminution de $e$.
-
-\subsection{Interphéromètre de Michelson : utilisation en coin d'air}
-
-Soit une source $S$ étendue éclairant le Michelson à partir de la position de contact optique. A partir de la position de contact optique , on incline le mirroir M2 d'un angle $\alpha$ très petit. Comme $\alpha$ est très petit on pu considérer la figure d'interférence comme étant le plan des mirroirs. Ainsi compte tenu de la localisation de la figure d'interférence, celles ci pourrons être observées soit directement à l'oeil nu en accomodant dans ce plan soit en formant l'image du plan des mirroirs par un lentille mince convergente (observation dans le plan conjugué des mirroirs et non dans le plan focal image de la lentille). Au voisinage des mirroirs, la différence de marche entre les rayons interférents voit approximativement $\delta = 2e$ or l'épaisseur de la lame dépend uniquement du point observé et de sa distance $X$ par rapport à l'intersection des mirroirs. En effet, on a $e= \alpha x$ (pour $\alpha$ très petit) et l'interfrange $i_f= \lambda_0/\alpha$.
+Soit une source $S$ étendue éclairant le Michelson à partir de la position de contact optique où $M_1$ est le symétrique de de $M_2$ par rapport à l'axe de la séparatrice, on incline le mirroir $M_2$ d'un angle $\alpha$ très petit. Comme $\alpha$ est très petit on peut considérer la figure d'interférence comme étant dans un plan : le plan des mirroirs.\\
+Ainsi compte tenu de la localisation de la figure d'interférence dans le plan des mirroirs, celles ci pourrons être observées soit directement à l'oeil nu en l'accomodant dans ce plan soit en formant l'image du plan des mirroirs par un lentille mince convergente (observation dans le plan conjugué des mirroirs et non dans le plan focal image de la lentille). Au voisinage des mirroirs, la différence de marche entre les rayons interférents voit approximativement $\delta = 2e$. Or l'épaisseur de la lame dépend uniquement du point observé et de sa distance $X$ par rapport à l'intersection des mirroirs. En effet, on a $e \simeq \alpha x$ (pour $\alpha$ très petit) et l'interfrange $i_f= \lambda_0/\alpha$ (avec $\delta \simeq 2\alpha X$).
 \end{document}
