@@ -21,6 +21,8 @@
 \definecolor{uququq}{rgb}{0.25,0.25,0.25}
 \definecolor{xdxdff}{rgb}{0.49,0.49,1}
 \definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{ttqqqq}{rgb}{0.2,0,0}
+\definecolor{zzttqq}{rgb}{0.6,0.2,0}
 \definecolor{cqcqcq}{rgb}{0.75,0.75,0.75}
 \definecolor{cyann}{rgb}{0.79,0.88,1} % for strings
 \definecolor{yel}{rgb}{1,1,0.75} % for strings
@@ -140,7 +142,7 @@ titleboxcolor = black, boxcolor = black, thcounter=, size = .9\textwidth]{Def}{D
 
 \maketitle
 \tableofcontents
-
+  
 \section{Généralités}
 Pour les systèmes interférentiels à différences du front d'onde, la source primaire doit être quasi ponctuelle pour qu'il y est cohérence entre les sources émises. La conséquence est que les figures d'interférences sont peu lumineuses. Pour qu'il y est interférence entre deux ondes, il faut que le déphasage en un point $M$ d'observation des interférences soit tel-que : 
 \[ \varPhi = \varPhi_1 - \varPhi_2 = \frac{2\pi}{\lambda_0}\delta = \frac{2\pi}{\lambda_0}\left( [SS_1M]-[SS_2M]\right) \] Si la source primaire est déplaçée de $\vect{dS}$, les chemins optique $[SS_1M]$ et $[SS_2M]$ varient respectivement de $n\vect{\Delta S}.\vect{u_1}$ et $n\vect{\Delta S}.\vect{u_2}$ avec $\vect{u_1}$ et $\vect{u_2}$ les vecteurs unitaires portés par les directions de propagation des ondes.
@@ -556,9 +558,78 @@ Soit deux exemples d'observation de franges d'égales inclinaison : en transmiss
 
 L'interféromètre de Michelson est constitué de deux mirroirs $M_1$ et $M_2$, d'une lame en verre avec une face métalisé pour être semi réflechissante appellée lame séparatrice $L_s$ et d'une lame transparente de même indice et de même épaisseur appelée lame compensatrice $L_c$. Celle-ci permet de compenser le nombre de fois ou deux rayons issu de la source et réflechi par $M_1$ et $M_2$ traversent une même épaisseur de verre
 
-
-INSERER FIGURE.
-
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw [color=cqcqcq,dash pattern=on 1pt off 1pt, xstep=0.5cm,ystep=0.5cm] (2.49,2.49) grid (8,7.5);
+\clip(2.5,2.5) rectangle (8,7.5);
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (3.5,7) -- (6.1,7) -- (6.1,7.3) -- (3.5,7.3) -- cycle;
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (7,5.6) -- (7.3,5.6) -- (7.3,3.2) -- (7,3.2) -- cycle;
+\draw [color=qqwuqq] (4,3)-- (6,5);
+\draw [color=qqwuqq] (6,5)-- (5.8,5.2);
+\draw [line width=1.2pt,color=qqwuqq] (5.8,5.2)-- (3.8,3.2);
+\draw [color=qqwuqq] (3.8,3.2)-- (4,3);
+\draw [color=qqwuqq] (4.1,4.9)-- (3.9,5.1);
+\draw [color=qqwuqq] (3.9,5.1)-- (5.4,6.6);
+\draw [color=qqwuqq] (5.4,6.6)-- (5.6,6.4);
+\draw [color=qqwuqq] (5.6,6.4)-- (4.1,4.9);
+\draw (3,4.4)-- (5,4.4);
+\draw (4.06,4.4) -- (4,4.32);
+\draw (4.06,4.4) -- (4,4.48);
+\draw (5.3,4.3)-- (5,4.4);
+\draw (5,4.4)-- (5.1,4.1);
+\draw (5.1,4.1)-- (5.1,2.6);
+\draw (5.1,3.29) -- (5.02,3.35);
+\draw (5.1,3.29) -- (5.18,3.35);
+\draw (5.1,3.41) -- (5.02,3.47);
+\draw (5.1,3.41) -- (5.18,3.47);
+\draw (5.1,3.17) -- (5.02,3.23);
+\draw (5.1,3.17) -- (5.18,3.23);
+\draw (5,4.4)-- (5,5.8);
+\draw (5,5.22) -- (5.08,5.16);
+\draw (5,5.22) -- (4.92,5.16);
+\draw (5,5.1) -- (5.08,5.04);
+\draw (5,5.1) -- (4.92,5.04);
+\draw (5,5.8)-- (4.9,6.1);
+\draw (5.4,6.6)-- (5.6,6.4);
+\draw [line width=1.2pt,color=ttqqqq] (3.5,7)-- (6.1,7);
+\draw [color=zzttqq] (6.1,7)-- (6.1,7.3);
+\draw [color=zzttqq] (6.1,7.3)-- (3.5,7.3);
+\draw [color=zzttqq] (3.5,7.3)-- (3.5,7);
+\draw [color=zzttqq] (7,5.6)-- (7.3,5.6);
+\draw [color=zzttqq] (7.3,5.6)-- (7.3,3.2);
+\draw [color=zzttqq] (7.3,3.2)-- (7,3.2);
+\draw [line width=1.2pt,color=ttqqqq] (7,3.2)-- (7,5.6);
+\draw (7.02,6.24) node[anchor=north west] {$M_1$};
+\draw (6.29,7.16) node[anchor=north west] {$M_2$};
+\draw (5.8,6.54) node[anchor=north west] {$L_C$};
+\draw (5.99,5.69) node[anchor=north west] {$L_S$};
+\draw (5.3,4.3)-- (6.2,4.3);
+\draw (5.81,4.3) -- (5.75,4.22);
+\draw (5.81,4.3) -- (5.75,4.38);
+\draw (7,4.3)-- (6.1,4.3);
+\draw (6.49,4.3) -- (6.55,4.38);
+\draw (6.49,4.3) -- (6.55,4.22);
+\draw (4.9,7)-- (4.9,6.5);
+\draw (4.9,6.63) -- (4.82,6.69);
+\draw (4.9,6.63) -- (4.98,6.69);
+\draw (4.9,6.75) -- (4.82,6.81);
+\draw (4.9,6.75) -- (4.98,6.81);
+\draw (4.9,6.1)-- (4.9,6.6);
+\draw (4.9,6.47) -- (4.98,6.41);
+\draw (4.9,6.47) -- (4.82,6.41);
+\draw (4.9,6.35) -- (4.98,6.29);
+\draw (4.9,6.35) -- (4.82,6.29);
+\draw (3.92,4.4)-- (4.62,4.4);
+\draw (4.39,4.4) -- (4.33,4.33);
+\draw (4.39,4.4) -- (4.33,4.48);
+\draw (4.27,4.4) -- (4.2,4.33);
+\draw (4.27,4.4) -- (4.2,4.48);
+\begin{scriptsize}
+\fill [color=qqqqff] (3,4.4) circle (1.5pt);
+\draw[color=qqqqff] (2.94,4.77) node {$S$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
 Pour la compréhension des phénomènes, ont ont faire abstraction de l'épaisseu $e$ de la séparatrice et donc de la compensatrice également.
 
 Quand l'interféromètre de Michelson éclairé par une source large est réglé en lame à faces parallèles, les interférences sont localisés à l'infini et necessite donc de placer le plan d'observation dans le plan focal d'une lentille convergeante.
